@@ -165,14 +165,13 @@ const LoadMore = ({ maxId, userId, data }) => {
 								<ProgressBar
 									className="mx-auto  text-center"
 									height="80"
-									width="150"
+									width="100%"
 									ariaLabel="progress-bar-loading"
 									wrapperStyle={{}}
 									wrapperClass="progress-bar-wrapper"
 									borderColor="#ffbf00"
 									barColor="#f73725"
 								/>
-								;
 							</div>
 						}
 						endMessage={
