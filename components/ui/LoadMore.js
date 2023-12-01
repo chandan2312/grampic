@@ -127,7 +127,7 @@ const LoadMore = ({ maxId, userId, data }) => {
 								</li>
 							</ul>
 							<div
-								className="pt-3"
+								className="pt-3 line-clamp-4"
 								dangerouslySetInnerHTML={{ __html: post.caption }}
 							></div>
 						</div>

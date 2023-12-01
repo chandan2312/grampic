@@ -10,6 +10,41 @@ import { FaComment, FaHeart, FaRegCirclePlay } from "react-icons/fa6";
 import ProfileNav from "@/components/ui/ProfileNav";
 import LoadMore from "@/components/ui/LoadMore";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+	const user = params.user;
+
+	const res = await fetch(`${process.env.DOMAIN}/api/picnob/user?user=${user}`, {
+		next: {
+			revalidate: 60 * 60 * 24 * 2, // 2 days
+		},
+	});
+	const data = await res.json();
+
+	return {
+		title: `${data.username} (${data.name}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
+		description: `View & Download ${data.name} (${data.username}) Profile, Instagram Photos, Stories, Videos annonymously. ${data.username} has over ${data.followers} followers and ${data.postCount} posts.`,
+		canonical: `${process.env.DOMAIN}/profile/${user}`,
+		category: "profiles",
+
+		openGraph: {
+			title: `${data.username} (${data.name}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
+			description: `View & Download ${data.name} (${data.username}) Profile, Instagram Photos, Stories, Videos annonymously. ${data.username} has over ${data.followers} followers and ${data.postCount} posts.`,
+			url: `${process.env.DOMAIN}/profile/${user}`,
+
+			images: data.posts
+				.filter((post, index) => index < 3)
+				.map((post) => ({
+					url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
+					width: 600,
+					height: 600,
+					alt: `${data.username} (${data.name}) Instagram - ${post.captionText}`,
+				})),
+			locale: "en_US",
+			type: "website",
+		},
+	};
+}
+
 const page = async ({ params }) => {
 	const user = params.user;
 	console.log(user);
@@ -206,7 +241,7 @@ const page = async ({ params }) => {
 										</li>
 									</ul>
 									<div
-										className="pt-3"
+										className="pt-3 line-clamp-5"
 										dangerouslySetInnerHTML={{ __html: post.caption }}
 									></div>
 								</div>

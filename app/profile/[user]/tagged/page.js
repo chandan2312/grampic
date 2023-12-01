@@ -10,6 +10,44 @@ import { MdAccessTimeFilled, MdVideoLibrary } from "react-icons/md";
 import { FaComment, FaHeart, FaRegCirclePlay } from "react-icons/fa6";
 import ProfileNav from "@/components/ui/ProfileNav";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+	const user = params.user;
+
+	const res = await fetch(
+		`${process.env.DOMAIN}/api/picnob/tagged?user=${user}`,
+		{
+			next: {
+				revalidate: 60 * 60 * 24 * 7, // 7 days
+			},
+		}
+	);
+
+	const data = await res.json();
+
+	return {
+		title: `Top & Recent Photos, Videos tagged to ${data.username} | ${process.env.NAME}`,
+		description: `View all posts that are tagged with ${data.username}'s profile.`,
+		canonical: `${process.env.DOMAIN}/profile/${user}/tagged`,
+
+		openGraph: {
+			title: `Top & Recent Photos, Videos tagged to ${data.username} | ${process.env.NAME}`,
+			description: `View all posts that are tagged with ${data.username}'s profile.`,
+			url: `${process.env.DOMAIN}/profile/${user}/tagged`,
+
+			images: data.posts
+				.filter((post, index) => index < 3)
+				.map((post) => ({
+					url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
+					width: 600,
+					height: 600,
+					alt: `${data.username} (${data.name}) Tagged Post - ${post.captionText}`,
+				})),
+			locale: "en_US",
+			type: "website",
+		},
+	};
+}
+
 const page = async ({ params }) => {
 	const user = params.user;
 
@@ -121,7 +159,7 @@ const page = async ({ params }) => {
 										</li>
 									</ul>
 									<div
-										className="pt-3"
+										className="pt-3 line-clamp-5"
 										dangerouslySetInnerHTML={{ __html: post.caption }}
 									></div>
 								</div>

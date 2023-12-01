@@ -1,6 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
+export const metadata = {
+	title: `Terms & Conditions | ${process.env.NAME}`,
+};
+
 const contact = () => {
 	const data = "";
 	return (

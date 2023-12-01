@@ -4,6 +4,36 @@ import Link from "next/link";
 import Image from "next/image";
 import Searchbar from "@/components/ui/Searchbar";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+	const term = params.term;
+
+	const res = await fetch(
+		`${process.env.DOMAIN}/api/picnob/search?term=${term}`,
+		{
+			next: {
+				revalidate: 60 * 60 * 24 * 30, // 30 days
+			},
+		}
+	);
+	const data = await res.json();
+
+	return {
+		title: `Users Matched With Search - ${data.term} | ${process.env.NAME}`,
+		description: `View Top ${data.list.length} Users Matched With Search - ${data.term} | GramPic`,
+		canonical: `${process.env.DOMAIN}/search/${term}`,
+		category: "search",
+
+		openGraph: {
+			title: `Users Matched With Search - ${data.term} | ${process.env.NAME}`,
+			description: `View Top ${data.list.length} Users Matched With Search - ${data.term} | GramPic`,
+			url: `${process.env.DOMAIN}/search/${term}`,
+
+			locale: "en_US",
+			type: "website",
+		},
+	};
+}
+
 const page = async ({ params }) => {
 	const term = params.term;
 

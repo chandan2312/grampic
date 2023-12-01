@@ -5,6 +5,42 @@ import { IoMdPhotos } from "react-icons/io";
 import { MdAccessTimeFilled, MdVideoLibrary } from "react-icons/md";
 import { FaComment, FaHeart, FaRegCirclePlay } from "react-icons/fa6";
 
+export async function generateMetadata({ params, searchParams }, parent) {
+	const tag = params.name;
+	console.log(tag);
+
+	const res = await fetch(`${process.env.DOMAIN}/api/picnob/tag?tag=${tag}`, {
+		next: {
+			revalidate: 60 * 60 * 24 * 2, // 2 days
+		},
+	});
+	const data = await res.json();
+
+	return {
+		title: `${data.tagCount} Posts Tagged With ${data.tag} - Instagram Photos, Videos | ${process.env.NAME}`,
+		description: `All Posts Related To ${data.tag} Tag. There are total ${data.tagCount} posts of ${data.tag} tag. View alll top and recent posts of ${data.tag} tag.`,
+		canonical: `${process.env.DOMAIN}/tag/${tag}`,
+		category: "tags",
+
+		openGraph: {
+			title: `${data.tagCount} Posts Tagged With ${data.tag} - Instagram Photos, Videos | ${process.env.NAME}`,
+			description: `All Posts Related To ${data.tag} Tag. There are total ${data.tagCount} posts of ${data.tag} tag. View alll top and recent posts of ${data.tag} tag.`,
+			url: `${process.env.DOMAIN}/tag/${tag}`,
+
+			images: data.topPosts
+				.filter((post, index) => index < 3)
+				.map((post) => ({
+					url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
+					width: 600,
+					height: 600,
+					alt: `${data.tag} tag Posts - ${post.captionText}`,
+				})),
+			locale: "en_US",
+			type: "website",
+		},
+	};
+}
+
 const page = async ({ params }) => {
 	const tag = params.name;
 	console.log(tag);
@@ -80,7 +116,7 @@ const page = async ({ params }) => {
 				{data.topPosts.length > 0 ? (
 					data.topPosts.map((post, index) => (
 						<article
-							className="card !m-0 !p-0 col-span-12 lg:col-span-4 hover:shadow-xl transition duration-300 ease-in-out"
+							className="card !m-0 !p-0 col-span-12 md:col-span-6 lg:col-span-4 hover:shadow-xl transition duration-300 ease-in-out"
 							key={index}
 						>
 							{/* Media type - top right corner */}
@@ -141,7 +177,7 @@ const page = async ({ params }) => {
 										</li>
 									</ul>
 									<div
-										className="pt-3"
+										className="pt-3 line-clamp-4"
 										dangerouslySetInnerHTML={{ __html: post.caption }}
 									></div>
 								</div>
@@ -159,7 +195,7 @@ const page = async ({ params }) => {
 				{data.recentPosts.length > 0 ? (
 					data.recentPosts.map((post, index) => (
 						<article
-							className="card !m-0 !p-0 col-span-12 lg:col-span-4 hover:shadow-xl transition duration-300 ease-in-out"
+							className="card !m-0 !p-0 col-span-12 md:col-span-6 lg:col-span-4 hover:shadow-xl transition duration-300 ease-in-out"
 							key={index}
 						>
 							{/* Media type - top right corner */}
@@ -222,7 +258,7 @@ const page = async ({ params }) => {
 										</li>
 									</ul>
 									<div
-										className="pt-3"
+										className="pt-3 line-clamp-4"
 										dangerouslySetInnerHTML={{ __html: post.caption }}
 									></div>
 								</div>
