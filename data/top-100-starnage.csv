@@ -1,0 +1,101 @@
+id,avatar,name,username,followers,engagement,country,category
+1,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/cristiano.jpeg,Cristiano Ronaldo,cristiano,612.7M,1.17%,Portugal,Finance
+2,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/leomessi.jpeg,Leo Messi,leomessi,493.1M,0.85%,Argentina,Sports
+3,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/selenagomez.jpeg,Selena Gomez,selenagomez,430M,1.36%,United States,Beauty and Self Care
+4,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kyliejenner.jpeg,Kylie,kyliejenner,398.9M,0.52%,United States,Beauty and Self Care
+5,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/therock.jpeg,Dwayne Johnson,therock,392.2M,0.27%,United States,Entertainment and Music
+6,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/arianagrande.jpeg,Ariana Grande,arianagrande,381M,0.81%,United States,Entertainment and Music
+7,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kimkardashian.jpeg,Kim Kardashian,kimkardashian,364.2M,0.32%,United States,Fashion and Accessories
+8,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/beyonce.jpeg,Beyoncé,beyonce,318.7M,0.45%,United States,Music
+9,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/khloekardashian.jpeg,Khloé Kardashian,khloekardashian,311.7M,0.17%,United States,Fashion and Accessories
+10,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kendalljenner.jpeg,Kendall,kendalljenner,294.5M,1.46%,,Food
+11,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/justinbieber.jpeg,Justin Bieber,justinbieber,292.9M,0.80%,Canada,Entertainment and Music
+12,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/taylorswift.jpeg,Taylor Swift,taylorswift,277.3M,-,United States,Entertainment and Music
+13,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/virat.kohli.jpeg,Virat Kohli,virat.kohli,264.4M,0.77%,India,Sports
+14,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/jlo.jpeg,Jennifer Lopez,jlo,253M,0.23%,United States,Art
+15,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/nickiminaj.jpeg,Barbie,nickiminaj,228.1M,0.48%,,Fashion and Accessories
+16,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kourtneykardash.jpeg,Kourtney Kardashian Barker,kourtneykardash,224.8M,0.71%,United States,Entertainment and Music
+17,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/neymarjr.jpeg,NJ 🇧🇷,neymarjr,216.7M,1.88%,Brazil,Sports
+18,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/mileycyrus.jpeg,Miley Cyrus,mileycyrus,215.7M,0.53%,United States,Music
+19,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/katyperry.jpeg,KATY PERRY,katyperry,206.7M,0.09%,United States,Entertainment and Music
+20,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/zendaya.jpeg,Zendaya,zendaya,185.2M,3.11%,United States,Entertainment and Music
+21,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kevinhart4real.jpeg,Kevin Hart,kevinhart4real,179.4M,0.04%,United States,Entertainment and Music
+22,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/iamcardib.jpeg,Cardi B,iamcardib,169.1M,0.83%,United States,Entertainment and Music
+23,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kingjames.jpeg,👑,kingjames,157.7M,0.96%,,Sports
+24,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/ddlovato.jpeg,Demi Lovato,ddlovato,157.6M,0.25%,United States,Entertainment and Music
+25,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/badgalriri.jpeg,badgalriri,badgalriri,152.8M,1.78%,,Music
+26,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/realmadrid.jpeg,Real Madrid C.F.,realmadrid,148.1M,0.20%,,Entertainment and Music
+27,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/chrisbrownofficial.jpeg,BROWN,chrisbrownofficial,144.2M,0.23%,,Art
+28,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/champagnepapi.jpeg,champagnepapi,champagnepapi,143.9M,0.92%,,Entertainment and Music
+29,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/billieeilish.jpeg,BILLIE EILISH,billieeilish,110.2M,2.01%,United States,Art
+30,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/k.mbappe.jpeg,Kylian Mbappé,k.mbappe,109.8M,2.06%,France,Sports
+31,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/gal_gadot.jpeg,Gal Gadot,gal_gadot,109.5M,0.15%,Israel,Entertainment and Music
+32,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/vindiesel.jpeg,Vin Diesel,vindiesel,101.8M,0.68%,United States,Producers
+33,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/lalalalisa_m.jpeg,LISA,lalalalisa_m,99M,7.35%,South Korea,Singer
+34,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/shakira.jpeg,Shakira,shakira,90M,1.26%,,Music
+35,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/priyankachopra.jpeg,Priyanka,priyankachopra,89.9M,1.06%,,Actors
+36,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/dualipa.jpeg,DUA LIPA,dualipa,88.6M,1.36%,United States,Entertainment and Music
+37,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/davidbeckham.jpeg,David Beckham,davidbeckham,86.1M,1.68%,United Kingdom,Sports
+38,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/shraddhakapoor.jpeg,Shraddha ✶,shraddhakapoor,84.2M,1.99%,,Beauty and Self Care
+39,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/jennierubyjane.jpeg,J,jennierubyjane,82.1M,6.19%,,Singer
+40,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/aliaabhatt.jpeg,Alia Bhatt 💛,aliaabhatt,80.9M,2.28%,India,Acting and Drama
+41,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/narendramodi.jpeg,Narendra Modi,narendramodi,80.9M,1.74%,India,Politics
+42,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/khaby00.jpeg,Khaby Lame,khaby00,80.6M,0.98%,Italy,Entertainment and Music
+43,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/snoopdogg.jpeg,snoopdogg,snoopdogg,80.3M,0.06%,,Entertainment and Music
+44,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/gigihadid.jpeg,Gigi Hadid,gigihadid,79.2M,1.07%,United States,Fashion and Accessories
+45,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/katrinakaif.jpeg,Katrina Kaif,katrinakaif,78.3M,0.91%,India,Beauty and Self Care
+46,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/deepikapadukone.jpeg,दीपिका पादुकोण,deepikapadukone,76.7M,1.64%,India,Entertainment and Music
+47,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/sooyaaa__.jpeg,JISOO🪐,sooyaaa__,76.4M,6.34%,,Art
+48,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/karimbenzema.jpeg,Karim Benzema,karimbenzema,76.1M,1.42%,France,Sports
+49,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/emmawatson.jpeg,Emma Watson,emmawatson,75.1M,1.66%,United Kingdom,Entertainment and Music
+50,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/ronaldinho.jpeg,Ronaldo de Assis Moreira,ronaldinho,74.7M,0.48%,Brazil,Sports
+51,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/nehakakkar.jpeg,Neha Kakkar,nehakakkar,74.7M,0.52%,India,Entertainment and Music
+52,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/bts.bighitofficial.jpeg,BTS official,bts.bighitofficial,74M,3.29%,South Korea,Entertainment and Music
+53,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/raffinagita1717.jpeg,Raffi Ahmad and Nagita Slavina,raffinagita1717,73.8M,0.10%,Indonesia,Entertainment and Music
+54,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/shawnmendes.jpeg,Shawn Mendes,shawnmendes,73.6M,2.32%,Brazil,Music
+55,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/roses_are_rosie.jpeg,ROSÉ,roses_are_rosie,72.5M,6.31%,,Entertainment and Music
+56,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/justintimberlake.jpeg,Justin Timberlake,justintimberlake,72.1M,0.53%,United States,Art
+57,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/urvashirautela.jpeg,Urvashi Rautela,urvashirautela,69.6M,0.31%,France,Art
+58,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/theweeknd.jpeg,Abel Tesfaye,theweeknd,68.1M,1.71%,United States,Art
+59,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/camila_cabello.jpeg,camila,camila_cabello,67.1M,1.33%,United States,Entertainment and Music
+60,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/karolg.jpeg,KAROL G,karolg,66.7M,6.78%,Colombia,Entertainment and Music
+61,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/akshaykumar.jpeg,Akshay Kumar,akshaykumar,66.7M,1.02%,India,Entertainment and Music
+62,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/tomholland2013.jpeg,Tom Holland,tomholland2013,66.5M,4.52%,United Kingdom,Entertainment and Music
+63,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/marcelotwelve.jpeg,Marcelo Vieira,marcelotwelve,66.1M,0.69%,Brazil,Sports
+64,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/anushkasharma.jpeg,AnushkaSharma1588,anushkasharma,65.2M,2.27%,,Entertainment and Music
+65,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/anitta.jpeg,Anitta 🎤,anitta,64.8M,0.80%,Brazil,Art
+66,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/willsmith.jpeg,Will Smith,willsmith,64.5M,0.69%,United States,Entertainment and Music
+67,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/iamzlatanibrahimovic.jpeg,Zlatan Ibrahimović,iamzlatanibrahimovic,63.9M,0.98%,Sweden,Fashion and Accessories
+68,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/maluma.jpeg,MALUMA,maluma,63.6M,2.12%,Colombia,Entertainment and Music
+69,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/milliebobbybrown.jpeg,Millie Bobby Brown,milliebobbybrown,63.6M,2.78%,United Kingdom,Celebrity
+70,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/beingsalmankhan.jpeg,Salman Khan,beingsalmankhan,63.1M,1.74%,India,Entertainment and Music
+71,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/manchesterunited.jpeg,Manchester United,manchesterunited,63M,0.37%,,Sports
+72,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/mosalah.jpeg,Mohamed Salah,mosalah,63M,1.23%,Egypt,Sports
+73,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/thv.jpeg,V,thv,62.7M,16.52%,,Art
+74,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/zacefron.jpeg,Zac Efron,zacefron,61.9M,2.09%,United States,Actors
+75,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/leonardodicaprio.jpeg,Leonardo DiCaprio,leonardodicaprio,61.9M,0.14%,United States,Entertainment and Music
+76,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/sergioramos.jpeg,Sergio Ramos,sergioramos,61.6M,1.33%,Spain,Sports
+77,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/paulpogba.jpeg,Paul Labile Pogba,paulpogba,61.1M,0.89%,France,Sports
+78,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/dishapatani.jpeg,disha patani (paatni) 🦋,dishapatani,60M,0.58%,India,Celebrity
+79,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/bellahadid.jpeg,Bella 🦋,bellahadid,59.8M,2.01%,United States,Technology
+80,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/whinderssonnunes.jpeg,Whindersson Nunes,whinderssonnunes,59.5M,0.71%,Brazil,Entertainment and Music
+81,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/juventus.jpeg,Juventus,juventus,58.9M,0.11%,Italy,Sports
+82,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/blackpinkofficial.jpeg,BLΛƆKPIИK,blackpinkofficial,57.7M,1.47%,,Entertainment and Music
+83,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/paulodybala.jpeg,Paulo Dybala,paulodybala,57.6M,2.07%,Argentina,Sports
+84,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/chrishemsworth.jpeg,Chris Hemsworth,chrishemsworth,57.6M,1.08%,Australia,Actors
+85,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/robertdowneyjr.jpeg,Robert Downey Jr.,robertdowneyjr,57.2M,0.70%,United States,Actors
+86,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/michelleobama.jpeg,Michelle Obama,michelleobama,57.1M,0.25%,,Books
+87,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/tatawerneck.jpeg,Tata Werneck,tatawerneck,57M,0.15%,Brazil,Entertainment and Music
+88,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/ladygaga.jpeg,Lady Gaga,ladygaga,56.4M,0.96%,United States,Shopping
+89,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/ayutingting92.jpeg,Ayu Tingting,ayutingting92,56.1M,0.12%,Indonesia,Beauty and Self Care
+90,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/kritisanon.jpeg,Kriti,kritisanon,55.5M,0.87%,,Art
+91,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/stephencurry30.jpeg,Wardell Curry,stephencurry30,55.4M,0.79%,United States,Sports
+92,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/prillylatuconsina96.jpeg,Prilly Latuconsina,prillylatuconsina96,54.8M,0.18%,Indonesia,Entertainment and Music
+93,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/sunnyleone.jpeg,Sunny Leone,sunnyleone,54.6M,0.19%,India,Beauty and Self Care
+94,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/adele.jpeg,Adele,adele,54.5M,4.44%,United Kingdom,Singer
+95,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/cznburak.jpeg,Burak Özdemir,cznburak,54.4M,0.81%,Turkey,Food
+96,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/hudabeauty.jpeg,HUDA BEAUTY,hudabeauty,54M,0.04%,United Arab Emirates,Beauty and Self Care
+97,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/lelepons.jpeg,Lele Pons,lelepons,53.9M,0.79%,United States,Art
+98,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/nusr_et.jpeg,Nusr_et#Saltbae,nusr_et,53.7M,0.14%,United States,Food
+99,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/larissamanoela.jpeg,Larissa Manoela,larissamanoela,53.3M,0.56%,Brazil,Art
+100,https://mediaroot.nyc3.digitaloceanspaces.com/avatar/instagram/travisscott.jpeg,flame,travisscott,53M,2.76%,United States,Music

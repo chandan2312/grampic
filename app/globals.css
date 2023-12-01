@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+/*-------------------------------- Colors -------------------------------------*/
+.bg-prim {
+	@apply bg-slate-100 dark:bg-slate-900;
+}
+
+.bg-sec {
+	@apply bg-slate-200 dark:bg-slate-800;
+}
+.bg-tert {
+	@apply bg-slate-300 dark:bg-slate-700;
+}
+
+.color-prim {
+}
+
+.gradient-prim {
+}
+
+.color-sec {
+}
+
+.gradient-sec {
+}
+
+/*-------------------------------- Tags -------------------------------------*/
+
+.h1 {
+	@apply text-3xl font-bold;
+}
+.h2 {
+	@apply text-2xl font-bold py-3 px-2 lg:px-4;
+}
+.h3 {
+	@apply text-xl font-bold py-2 px-2 lg:px-4;
+}
+.h4 {
+	@apply text-base font-bold py-2 px-2 lg:px-4;
+}
+.pg {
+	@apply text-base lg:text-lg p-2 lg:px-4;
+}
+
+/*-------------------------------- Flex -------------------------------------*/
+
+.f-c {
+	@apply flex flex-col;
+}
+.f-jc {
+	@apply flex justify-center;
+}
+.f-ic {
+	@apply flex items-center;
+}
+.f-jcic {
+	@apply flex justify-center items-center;
+}
+.f-cjcic {
+	@apply flex flex-col justify-center items-center;
+}
+.f-jb {
+	@apply flex justify-between;
+}
+
+/*-------------------------------- Shadow, Rounded -------------------------------------*/
+
+.rmsm {
+	@apply rounded-sm shadow-sm;
+}
+
+.rlsl {
+	@apply rounded-lg shadow-lg;
+}
+
+.card {
+	@apply p-3 m-2 bg-base-100 border-slate-500/30 border rounded-lg shadow-sm;
+}
+
+.card-2 {
+	@apply p-2  bg-slate-200 border-slate-500/10 border rounded-lg shadow-sm;
+}
+
+.card-transparent {
+	@apply p-3 m-2   rounded-lg shadow-sm;
+}
+
+.force-0 {
+	@apply !m-0 !p-0;
+}
+
+.click {
+	@apply cursor-pointer hover:bg-primary/20 hover:rounded-md hover:shadow-lg;
+}
+
+.button {
+	@apply mx-2 my-1 px-2 py-1 rounded-md shadow-sm  hover:bg-blue-500/80;
+}
+
+.divider {
+	@apply text-slate-500 border-none py-1;
+}
+
+.link1 {
+	@apply text-blue-500 hover:text-blue-700;
+}
+
+.link2 {
+	@apply text-blue-500 font-semibold hover:text-blue-700;
+}

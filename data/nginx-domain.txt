@@ -1,0 +1,33 @@
+server {
+        server_name grampic.com;
+
+        gzip on;
+        gzip_proxied any;
+        gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml appl>
+        gzip_comp_level 5;
+        gzip_buffers 16 8k;
+        gzip_min_length 256;
+
+        location /_next/static {
+                alias ./.next/static;
+                proxy_pass http://127.0.0.1:4000/_next/static;
+                add_header Cache-Control "public, max-age=3600, immutable";
+                access_log off;
+        }
+
+        location / {
+                proxy_pass http://127.0.0.1:4000;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+
+
+        }
+
+
+
+
+
+}
