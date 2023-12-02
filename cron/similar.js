@@ -6,7 +6,7 @@ const mainArray = [];
 const loggedArray = [];
 let tempArray = [];
 let nextArray = [];
-const limit = 25000;
+const limit = 50000;
 
 async function fetchUserData(username, userid) {
 	const response = await fetch(
@@ -150,8 +150,8 @@ async function POST() {
 	console.log(notifier.data);
 	try {
 		// const mainArray = [];
-		const mainUserName = "jocelynbinder";
-		const mainUserId = "267332466";
+		const mainUserName = "jayzcalles";
+		const mainUserId = "3233415943";
 
 		const data = await fetchUserData(mainUserName, mainUserId);
 
