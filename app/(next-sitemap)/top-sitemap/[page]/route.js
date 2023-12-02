@@ -8,7 +8,7 @@ export async function GET(req, { params }) {
 
 	const take = 5000;
 	const skip = (page - 1) * take;
-	s;
+
 	console.log(skip, take);
 
 	const res = await prisma.top.findMany({
@@ -21,7 +21,7 @@ export async function GET(req, { params }) {
 			loc: `${process.env.DOMAIN}/profile/${item.user}`,
 			lastmod: new Date().toISOString(),
 			changefreq: "daily",
-			priority: 0.7,
+			priority: 0.9,
 		};
 
 		return each;

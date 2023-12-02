@@ -28,6 +28,11 @@ async function fetchAndProcess(entries, depth = 2) {
 
 		console.log(`data length = ${data.length}`);
 
+		if (data.length == 0) {
+			console.log(`❌  no related data found for ${single.username}     `);
+			continue;
+		}
+
 		for (let j = 0; j < data.length; j++) {
 			const item = data[j];
 
@@ -42,7 +47,7 @@ async function fetchAndProcess(entries, depth = 2) {
 		}
 
 		if (loggedArray.length > limit) {
-			console.log("main array limit reached ✅");
+			console.log("Logged limit reached ✅");
 			console.log(loggedArray[limit]);
 
 			const notifier = await axios.post(
