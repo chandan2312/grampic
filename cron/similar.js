@@ -64,11 +64,13 @@ async function fetchAndProcess(entries, depth = 2) {
 	);
 
 	console.log("Starting Next Loop ✅");
+
 	const newArray = [...nextArray];
+
+	console.log(`Next Array length is ${newArray.length}`);
 	console.log(newArray);
 
 	nextArray = [];
-	console.log(`Next Array is - ${nextArray}`);
 
 	await fetchAndProcess(newArray, depth - 1);
 }
