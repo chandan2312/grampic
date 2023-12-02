@@ -6,7 +6,7 @@ const mainArray = [];
 const loggedArray = [];
 let tempArray = [];
 let nextArray = [];
-const limit = 5000;
+const limit = 25000;
 
 async function fetchUserData(username, userid) {
 	const response = await fetch(
