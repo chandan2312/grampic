@@ -23,8 +23,10 @@ async function fetchAndProcess(entries, depth = 3) {
 
 	console.log(`entries length = ${entries.length}`);
 
+	const filtered = entries.filter((entry) => entry.username != 0);
+
 	for (let i = 0; i < entries.length; i++) {
-		const single = entries[i];
+		const single = filtered[i];
 		const data = await fetchUserData(single.username, single.userid);
 
 		console.log(`data length = ${data.length}`);
