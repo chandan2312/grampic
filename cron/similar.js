@@ -159,7 +159,17 @@ async function POST() {
 
 		// At this point, mainArray contains the unique data
 	} catch (error) {
-		console.error("Error:", error);
+		console.error("Error:", error.message);
+		const notifier = await axios.post(
+			`${process.env.DOMAIN}/api/notification/telegram`,
+
+			{
+				body: {
+					message: `Grampic - similar users db script error - ${error.message}`,
+				},
+			}
+		);
+		console.log(notifier.data);
 	}
 }
 
