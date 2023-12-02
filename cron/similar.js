@@ -150,8 +150,8 @@ async function POST() {
 	console.log(notifier.data);
 	try {
 		// const mainArray = [];
-		const mainUserName = "jayzcalles";
-		const mainUserId = "3233415943";
+		const mainUserName = "amaandagirotto";
+		const mainUserId = "380543481";
 
 		const data = await fetchUserData(mainUserName, mainUserId);
 
