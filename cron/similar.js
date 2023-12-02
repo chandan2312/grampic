@@ -43,7 +43,7 @@ async function fetchAndProcess(entries, depth = 3) {
 
 			if (!mainArray.includes(item.username)) {
 				console.log(`${mainArray.length} - ${item.username}`);
-				const dbrequest = await addDB(item.username);
+				const dbrequest = await addDB(item.username, item.userid);
 				mainArray.push(item.username);
 			} else {
 				console.log(mainArray.length);
@@ -88,7 +88,7 @@ async function fetchAndProcess(entries, depth = 3) {
 
 //logged users list
 
-async function addDB(username) {
+async function addDB(username, userid) {
 	console.log(`username - ${username}`);
 	if (username) {
 		const checkReq = await fetch(
@@ -125,8 +125,8 @@ async function addDB(username) {
 			const add = await addReq.json();
 			console.log(`✅  ${username} added to db TOP`);
 			//here
-			loggedArray.push(username);
-			tempArray.push(username);
+			tempArray.push({ username, userid });
+			loggedArray.push({ username, userid });
 			console.log(`Logged Users Count - ${loggedArray.length}`);
 		}
 	} else {
@@ -149,8 +149,8 @@ async function POST() {
 	console.log(notifier.data);
 	try {
 		// const mainArray = [];
-		const mainUserName = "lancommme";
-		const mainUserId = "3453242593";
+		const mainUserName = "sissque";
+		const mainUserId = "871747831";
 
 		const data = await fetchUserData(mainUserName, mainUserId);
 
@@ -158,7 +158,7 @@ async function POST() {
 
 		for (const single of data) {
 			if (!mainArray.includes(single.username)) {
-				const dbrequest = await addDB(single.username);
+				const dbrequest = await addDB(single.username, single.userid);
 				mainArray.push(single.username);
 
 				console.log(mainArray.length);
