@@ -1,5 +1,11 @@
 require("dotenv").config();
 const axios = require("axios");
+const { default: next } = require("next");
+
+const mainArray = [];
+const loggedArray = [];
+let nextArray = [];
+const limit = 5000;
 
 async function fetchUserData(username, userid) {
 	const response = await fetch(
@@ -9,12 +15,10 @@ async function fetchUserData(username, userid) {
 	return data;
 }
 
-async function fetchAndProcess(mainArray, entries, depth = 2) {
+async function fetchAndProcess(entries, depth = 2) {
 	if (depth === 0 || entries.length === 0) {
 		return;
 	}
-
-	const nextUsernames = [];
 
 	console.log(`entries length = ${entries.length}`);
 
@@ -37,8 +41,6 @@ async function fetchAndProcess(mainArray, entries, depth = 2) {
 			}
 		}
 
-		const limit = 5000;
-
 		if (loggedArray.length > limit) {
 			console.log("main array limit reached ✅");
 			console.log(loggedArray[limit]);
@@ -55,22 +57,23 @@ async function fetchAndProcess(mainArray, entries, depth = 2) {
 			console.log(notifier.data);
 			return;
 		}
-
-		nextUsernames.push(...data);
 	}
 
-	console.log("first Loop Ended ✅");
-
-	console.log(mainArray.length);
+	console.log(
+		`Loop Ended ✅ - Status\nLoggedArray - ${loggedArray.length}\nmainArray - ${mainArray.length}`
+	);
 
 	console.log("Starting Next Loop ✅");
-	console.log(nextUsernames);
+	const newArray = [...nextArray];
+	console.log(newArray);
 
-	await fetchAndProcess(mainArray, nextUsernames, depth - 1);
+	nextArray = [];
+	console.log(`Next Array is - ${nextArray}`);
+
+	await fetchAndProcess(newArray, depth - 1);
 }
 
 //logged users list
-const loggedArray = [];
 
 async function addDB(username) {
 	console.log(`username - ${username}`);
@@ -110,6 +113,7 @@ async function addDB(username) {
 			console.log(`✅  ${username} added to db TOP`);
 			//here
 			loggedArray.push(username);
+			nextArray.push(username);
 			console.log(`Logged Users Count - ${loggedArray.length}`);
 		}
 	} else {
@@ -131,9 +135,9 @@ async function POST() {
 	);
 	console.log(notifier.data);
 	try {
-		const mainArray = [];
-		const mainUserName = "maria_iliukhina";
-		const mainUserId = "4607990924";
+		// const mainArray = [];
+		const mainUserName = "modelo_julinha";
+		const mainUserId = "7955919444";
 
 		const data = await fetchUserData(mainUserName, mainUserId);
 
@@ -152,7 +156,7 @@ async function POST() {
 
 		console.log(mainArray.length);
 
-		await fetchAndProcess(mainArray, data);
+		await fetchAndProcess(data);
 
 		console.log("All Urls Fetched ✅");
 		console.log(mainArray.length);
