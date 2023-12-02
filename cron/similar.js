@@ -120,6 +120,16 @@ async function addDB(username) {
 }
 
 async function POST() {
+	const notifier = await axios.post(
+		`${process.env.DOMAIN}/api/notification/telegram`,
+
+		{
+			body: {
+				message: `Grampic - similar users db script started`,
+			},
+		}
+	);
+	console.log(notifier.data);
 	try {
 		const mainArray = [];
 		const mainUserName = "maria_iliukhina";
