@@ -15,7 +15,7 @@ async function fetchUserData(username, userid) {
 	return data;
 }
 
-async function fetchAndProcess(entries, depth = 2) {
+async function fetchAndProcess(entries, depth = 3) {
 	if (depth === 0 || entries.length === 0) {
 		return;
 	}
@@ -143,8 +143,8 @@ async function POST() {
 	console.log(notifier.data);
 	try {
 		// const mainArray = [];
-		const mainUserName = "kybabyrae";
-		const mainUserId = "53414804645";
+		const mainUserName = "lyssalday";
+		const mainUserId = "290942758";
 
 		const data = await fetchUserData(mainUserName, mainUserId);
 
