@@ -18,31 +18,31 @@ export async function generateMetadata({ params, searchParams }, parent) {
 	const data = await res.json();
 
 	return {
-		title: `${data.username} Photo & Update - ${data.captionText
+		title: `${data.name} (${data.username}) Photo & Update - ${data.captionText
 			.split(" ")
 			.slice(0, 10)
 			.join(" ")}${data.captionText.split(" ").length > 10 ? "..." : ""} | ${
 			process.env.NAME
 		}`,
-		description: `${data.captionText} - ${data.username} Instagram Photos & Videos`,
+		description: `${data.captionText} - ${data.name} Instagram Photos & Videos`,
 		canonical: `/p/${id}`,
 		category: "photos & videos",
 
 		openGraph: {
-			title: `${data.username} Photo & Update - ${data.captionText
+			title: `${data.name} (${data.username}) Photo & Update - ${data.captionText
 				.split(" ")
 				.slice(0, 10)
 				.join(" ")}${data.captionText.split(" ").length > 10 ? "..." : ""} | ${
 				process.env.NAME
 			}`,
-			description: `${data.captionText} - ${data.username} Instagram Photos & Videos`,
+			description: `${data.captionText} - ${data.name} (${data.username}) Instagram Photos & Videos`,
 			url: `${process.env.NAME}/p/${id}`,
 
 			images: data.media.map((post) => ({
 				url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
 				width: 600,
 				height: 600,
-				alt: `${data.username} (${data.name}) Instagram - ${post.captionText}`,
+				alt: `${data.name} (${data.username}) Instagram - ${post.captionText}`,
 			})),
 			locale: "en_US",
 			type: "website",

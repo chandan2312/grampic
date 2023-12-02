@@ -90,8 +90,8 @@ const LoadMore = ({ maxId, userId, data }) => {
 									loading="lazy"
 									alt={
 										post.captionText
-											? `${data.username} Instagram Post - ${post.captionText}`
-											: `${data.username} Instagram Post ${index + 1}`
+											? `${data.name} (${data.username}) Instagram Post - ${post.captionText}`
+											: `${data.name} (${data.username}) Instagram Post ${index + 1}`
 									}
 								/>
 							</figure>
