@@ -4,6 +4,7 @@ const { default: next } = require("next");
 
 const mainArray = [];
 const loggedArray = [];
+let tempArray = [];
 let nextArray = [];
 const limit = 5000;
 
@@ -29,7 +30,9 @@ async function fetchAndProcess(entries, depth = 3) {
 		console.log(`data length = ${data.length}`);
 
 		if (data.length == 0) {
-			console.log(`❌  no related data found for ${single.username}     `);
+			console.log(
+				`❌  no related data found for ${single.username}  (${single.userid})   `
+			);
 			continue;
 		}
 
@@ -65,19 +68,20 @@ async function fetchAndProcess(entries, depth = 3) {
 	}
 
 	console.log(
-		`Loop Ended ✅ - Status\nLoggedArray - ${loggedArray.length}\nmainArray - ${mainArray.length}`
+		`Loop Ended ✅ - Status --- LoggedArray - ${loggedArray.length},   tempArray - ${tempArray.length},  mainArray - ${mainArray.length}`
 	);
 
 	console.log("Starting Next Loop ✅");
 
-	const newArray = [...nextArray];
+	nextArray = [...tempArray];
 
-	console.log(`Next Array length is ${newArray.length}`);
-	console.log(newArray);
+	console.log(`Next Array length is ${nextArray.length}`);
+	console.log(nextArray);
 
-	nextArray = [];
+	tempArray = [];
+	console.log(`Temp Array length is ${tempArray.length}`);
 
-	await fetchAndProcess(newArray, depth - 1);
+	await fetchAndProcess(nextArray, depth - 1);
 }
 
 //logged users list
@@ -120,7 +124,7 @@ async function addDB(username) {
 			console.log(`✅  ${username} added to db TOP`);
 			//here
 			loggedArray.push(username);
-			nextArray.push(username);
+			tempArray.push(username);
 			console.log(`Logged Users Count - ${loggedArray.length}`);
 		}
 	} else {
@@ -143,8 +147,8 @@ async function POST() {
 	console.log(notifier.data);
 	try {
 		// const mainArray = [];
-		const mainUserName = "lyssalday";
-		const mainUserId = "290942758";
+		const mainUserName = "lancommme";
+		const mainUserId = "3453242593";
 
 		const data = await fetchUserData(mainUserName, mainUserId);
 
@@ -162,6 +166,8 @@ async function POST() {
 		console.log("main array");
 
 		console.log(mainArray.length);
+
+		console.log(data);
 
 		await fetchAndProcess(data);
 
