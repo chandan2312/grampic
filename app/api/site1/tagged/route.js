@@ -32,8 +32,8 @@ export async function GET(req) {
 					?.trim() || "",
 			avatar: $("div.ava div.pic a img")
 				.attr("src")
-				?.replace(/.*\?v\//g, "")
-				?.replace(/.*\?v\\/g, ""),
+				?.replace(/.*\?v\//, "")
+				?.replace(/.*\?v\\/, ""),
 			avatarDownload: $("div.ava_down a.downbtn")
 				.attr("href")
 				.replace(/.*webapp\&u\=/, "")

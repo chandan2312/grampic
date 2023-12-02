@@ -10,7 +10,7 @@ import { FaDownload, FaRegCirclePlay } from "react-icons/fa6";
 export async function generateMetadata({ params, searchParams }, parent) {
 	const id = params.id;
 
-	const res = await fetch(`${process.env.DOMAIN}/api/picnob/post?id=${id}`, {
+	const res = await fetch(`${process.env.DOMAIN}/api/site1/post?id=${id}`, {
 		next: {
 			revalidate: 60 * 60 * 24 * 30, // 30 days
 		},
@@ -56,7 +56,7 @@ const page = async ({ params }) => {
 	const currTime = new Date();
 	const id = params.id;
 
-	const res = await fetch(`${process.env.DOMAIN}/api/picnob/post?id=${id}`, {
+	const res = await fetch(`${process.env.DOMAIN}/api/site1/post?id=${id}`, {
 		next: {
 			revalidate: 60 * 60 * 24 * 30, // 30 days
 		},

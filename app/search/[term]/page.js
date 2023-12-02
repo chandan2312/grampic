@@ -8,7 +8,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 	const term = params.term;
 
 	const res = await fetch(
-		`${process.env.DOMAIN}/api/picnob/search?term=${term}`,
+		`${process.env.DOMAIN}/api/site1/search?term=${term}`,
 		{
 			next: {
 				revalidate: 60 * 60 * 24 * 30, // 30 days
@@ -38,7 +38,7 @@ const page = async ({ params }) => {
 	const term = params.term;
 
 	const res = await fetch(
-		`${process.env.DOMAIN}/api/picnob/search?term=${term}`,
+		`${process.env.DOMAIN}/api/site1/search?term=${term}`,
 		{
 			next: {
 				revalidate: 60 * 60 * 24 * 30, // 30 days

@@ -13,7 +13,7 @@ import LoadMore from "@/components/ui/LoadMore";
 export async function generateMetadata({ params, searchParams }, parent) {
 	const user = params.user;
 
-	const res = await fetch(`${process.env.DOMAIN}/api/picnob/user?user=${user}`, {
+	const res = await fetch(`${process.env.DOMAIN}/api/site1/user?user=${user}`, {
 		next: {
 			revalidate: 60 * 60 * 24 * 2, // 2 days
 		},
@@ -49,7 +49,7 @@ const page = async ({ params }) => {
 	const user = params.user;
 	console.log(user);
 
-	const res = await fetch(`${process.env.DOMAIN}/api/picnob/user?user=${user}`, {
+	const res = await fetch(`${process.env.DOMAIN}/api/site1/user?user=${user}`, {
 		next: {
 			revalidate: 60 * 60 * 24 * 2, // 2 days
 		},

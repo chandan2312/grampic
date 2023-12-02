@@ -27,6 +27,14 @@ const nextConfig = {
 				source: "/profile-sitemap-:page.xml",
 				destination: "/profile-sitemap/:page",
 			},
+			{
+				source: "/top-sitemap.xml",
+				destination: "/top-sitemap",
+			},
+			{
+				source: "/top-sitemap-:page.xml",
+				destination: "/top-sitemap/:page",
+			},
 		];
 	},
 };

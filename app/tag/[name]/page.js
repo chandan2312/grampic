@@ -9,7 +9,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 	const tag = params.name;
 	console.log(tag);
 
-	const res = await fetch(`${process.env.DOMAIN}/api/picnob/tag?tag=${tag}`, {
+	const res = await fetch(`${process.env.DOMAIN}/api/site1/tag?tag=${tag}`, {
 		next: {
 			revalidate: 60 * 60 * 24 * 2, // 2 days
 		},
@@ -45,7 +45,7 @@ const page = async ({ params }) => {
 	const tag = params.name;
 	console.log(tag);
 
-	const res = await fetch(`${process.env.DOMAIN}/api/picnob/tag?tag=${tag}`, {
+	const res = await fetch(`${process.env.DOMAIN}/api/site1/tag?tag=${tag}`, {
 		next: {
 			revalidate: 60 * 60 * 24 * 2, // 2 days
 		},

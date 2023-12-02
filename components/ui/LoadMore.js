@@ -23,7 +23,7 @@ const LoadMore = ({ maxId, userId, data }) => {
 		try {
 			setIsLoading(true);
 			const response = await fetch(
-				`/api/picnob/load-more?maxId=${currentMaxId}&userId=${userId}`
+				`/api/site1/load-more?maxId=${currentMaxId}&userId=${userId}`
 			);
 			const data = await response.json();
 
