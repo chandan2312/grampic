@@ -21,13 +21,13 @@ export async function generateMetadata({ params, searchParams }, parent) {
 	const data = await res.json();
 
 	return {
-		title: `${data.username} (${data.name}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
+		title: `${data.name} (${data.username}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
 		description: `View & Download ${data.name} (${data.username}) Profile, Instagram Photos, Stories, Videos annonymously. ${data.username} has over ${data.followers} followers and ${data.postCount} posts.`,
 		canonical: `${process.env.DOMAIN}/profile/${user}`,
 		category: "profiles",
 
 		openGraph: {
-			title: `${data.username} (${data.name}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
+			title: `${data.name} (${data.username}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
 			description: `View & Download ${data.name} (${data.username}) Profile, Instagram Photos, Stories, Videos annonymously. ${data.username} has over ${data.followers} followers and ${data.postCount} posts.`,
 			url: `${process.env.DOMAIN}/profile/${user}`,
 
