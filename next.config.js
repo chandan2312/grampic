@@ -51,7 +51,7 @@ const nextConfig = {
 				],
 			},
 			{
-				path: "/top-sitemap",
+				source: "/top-sitemap",
 				locale: false,
 				headers: [
 					{
@@ -61,7 +61,7 @@ const nextConfig = {
 				],
 			},
 			{
-				path: "/top-sitemap/:page",
+				source: "/top-sitemap/:page",
 				locale: false,
 				headers: [
 					{
@@ -71,7 +71,7 @@ const nextConfig = {
 				],
 			},
 			{
-				path: "/profile-sitemap/",
+				source: "/profile-sitemap/",
 				locale: false,
 				headers: [
 					{
@@ -81,7 +81,7 @@ const nextConfig = {
 				],
 			},
 			{
-				path: "/profile-sitemap/:page",
+				source: "/profile-sitemap/:page",
 				locale: false,
 				headers: [
 					{
