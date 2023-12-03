@@ -37,6 +37,61 @@ const nextConfig = {
 			},
 		];
 	},
+
+	async headers() {
+		return [
+			{
+				source: "/:path*.xml",
+				locale: false,
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=3600, must-revalidate",
+					},
+				],
+			},
+			{
+				path: "/top-sitemap",
+				locale: false,
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=3600, must-revalidate",
+					},
+				],
+			},
+			{
+				path: "/top-sitemap/:page",
+				locale: false,
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=3600, must-revalidate",
+					},
+				],
+			},
+			{
+				path: "/profile-sitemap/",
+				locale: false,
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=3600, must-revalidate",
+					},
+				],
+			},
+			{
+				path: "/profile-sitemap/:page",
+				locale: false,
+				headers: [
+					{
+						key: "Cache-Control",
+						value: "public, max-age=3600, must-revalidate",
+					},
+				],
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;
