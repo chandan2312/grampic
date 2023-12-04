@@ -20,20 +20,20 @@ const nextConfig = {
 	async rewrites() {
 		return [
 			{
-				source: "/profile-sitemap.xml",
-				destination: "/profile-sitemap",
+				source: "/:sitemap/profile.xml",
+				destination: "/:sitemap/profile",
 			},
 			{
-				source: "/profile-sitemap-:page.xml",
-				destination: "/profile-sitemap/:page",
+				source: "/:sitemap/profile-:page.xml",
+				destination: "/:sitemap/profile/:page",
 			},
 			{
-				source: "/top-sitemap.xml",
-				destination: "/top-sitemap",
+				source: "/:sitemap/top.xml",
+				destination: "/:sitemap/top",
 			},
 			{
-				source: "/top-sitemap-:page.xml",
-				destination: "/top-sitemap/:page",
+				source: "/:sitemap/top-:page.xml",
+				destination: "/:sitemap/top/:page",
 			},
 		];
 	},
@@ -42,46 +42,6 @@ const nextConfig = {
 		return [
 			{
 				source: "/:path*.xml",
-				locale: false,
-				headers: [
-					{
-						key: "Cache-Control",
-						value: "public, max-age=3600, must-revalidate",
-					},
-				],
-			},
-			{
-				source: "/top-sitemap",
-				locale: false,
-				headers: [
-					{
-						key: "Cache-Control",
-						value: "public, max-age=3600, must-revalidate",
-					},
-				],
-			},
-			{
-				source: "/top-sitemap/:page",
-				locale: false,
-				headers: [
-					{
-						key: "Cache-Control",
-						value: "public, max-age=3600, must-revalidate",
-					},
-				],
-			},
-			{
-				source: "/profile-sitemap/",
-				locale: false,
-				headers: [
-					{
-						key: "Cache-Control",
-						value: "public, max-age=3600, must-revalidate",
-					},
-				],
-			},
-			{
-				source: "/profile-sitemap/:page",
 				locale: false,
 				headers: [
 					{
