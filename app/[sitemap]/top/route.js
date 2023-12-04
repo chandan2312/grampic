@@ -9,7 +9,7 @@ export async function GET() {
 
 	const pageArray = [];
 	for (let i = 1; i <= pageCount; i++) {
-		pageArray.push(`${process.env.DOMAIN}/top-sitemap-${i}.xml`);
+		pageArray.push(`${process.env.DOMAIN}/sitemap/top-${i}.xml`);
 	}
 
 	return getServerSideSitemapIndex(pageArray);
