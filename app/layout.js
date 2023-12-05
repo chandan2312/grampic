@@ -15,6 +15,7 @@ export const metadata = {
 		yandex: "yandex",
 		yahoo: "yahoo",
 	},
+	other: { "p:domain_verify": "d443ed03a59e671fd72aab0392f46b18" },
 	openGraph: {
 		title: "GramPic - Instagram Photo & Video Downloader",
 		description:
