@@ -6,7 +6,36 @@ const mainArray = [];
 const loggedArray = [];
 let tempArray = [];
 let nextArray = [];
-const limit = 100000;
+const limit = 10;
+
+const users = [
+	{ id: 0, username: "" },
+	{ id: 1, username: "avnizp" },
+	{ id: 2, username: "mimi" },
+	{ id: 3, username: "mimi" },
+	{ id: 4, username: "mimi" },
+	{ id: 5, username: "mimi" },
+	{ id: 6, username: "mimi" },
+	{ id: 7, username: "mimi" },
+	{ id: 8, username: "mimi" },
+	{ id: 9, username: "mimi" },
+	{ id: 10, username: "mimi" },
+];
+
+async function notifyTelegram(message) {
+	const notifier = await axios.post(
+		`${process.env.DOMAIN}/api/notification/telegram`,
+		{
+			body: { message },
+		}
+	);
+	console.log(notifier.data);
+}
+
+function exitScript() {
+	console.log("Exiting script");
+	process.exit(0);
+}
 
 async function fetchUserData(username, userid) {
 	const response = await fetch(
@@ -16,10 +45,16 @@ async function fetchUserData(username, userid) {
 	return data;
 }
 
-async function fetchAndProcess(entries, depth = 10) {
+async function fetchAndProcess(entries, depth = 1) {
 	console.log(`DEPTH = ${depth}`);
 	if (depth === 0 || entries.length === 0) {
 		return;
+	}
+
+	if (loggedArray.length > limit) {
+		console.log(`Logged Array Length - ${loggedArray.length}`);
+		console.log("Logged limit reached ✅");
+		return "Loop Ends";
 	}
 
 	console.log(`entries length = ${entries.length}`);
@@ -42,32 +77,32 @@ async function fetchAndProcess(entries, depth = 10) {
 		for (let j = 0; j < data.length; j++) {
 			const item = data[j];
 
+			if (loggedArray.length > limit) {
+				console.log("Logged limit reached ✅");
+				return "Loop Ends";
+			}
+
 			if (!mainArray.includes(item.username)) {
 				console.log(`${mainArray.length} - ${item.username}`);
 				const dbrequest = await addDB(item.username, item.userid);
 				mainArray.push(item.username);
 			} else {
-				console.log(mainArray.length);
 				console.log(`1️⃣  ${item.username} duplicate in main array`);
 			}
 		}
 
 		if (loggedArray.length > limit) {
+			console.log(`Logged Array Length - ${loggedArray.length}`);
 			console.log("Logged limit reached ✅");
-			console.log(loggedArray[limit]);
-
-			const notifier = await axios.post(
-				`${process.env.DOMAIN}/api/notification/telegram`,
-
-				{
-					body: {
-						message: `${limit} users added to db TOP from total ${mainArray?.length} users`,
-					},
-				}
-			);
-			console.log(notifier.data);
-			return;
+			return "Loop Ends";
 		}
+	}
+
+	if (loggedArray.length > limit) {
+		console.log(`Logged Array Length - ${loggedArray.length}`);
+		console.log("Logged limit reached ✅");
+
+		return "Loop Ends";
 	}
 
 	console.log(
@@ -132,30 +167,32 @@ async function addDB(username, userid) {
 		}
 	} else {
 		console.log(`❌  no username found  in post     `);
-
 		return "DB Operation Failed ";
 	}
 }
 
 async function POST() {
-	const notifier = await axios.post(
-		`${process.env.DOMAIN}/api/notification/telegram`,
-
-		{
-			body: {
-				message: `Grampic - similar users db script started`,
-			},
-		}
-	);
-	console.log(notifier.data);
 	try {
-		// const mainArray = [];
-		const mainUserName = "gemeosjoaoeandreoficial";
-		const mainUserId = "8341795247";
+		const currIndexFetch = await fetch(`${process.env.DOMAIN}/api/get/index`);
+		const currIndex = await currIndexFetch.json();
+		console.log(currIndex);
+		notifyTelegram(
+			`Grampic - START - Loop ${currIndex} from ${users.length - 1} `
+		);
 
-		const data = await fetchUserData(mainUserName, mainUserId);
+		const currUser = users[currIndex].username;
 
-		console.log(`main data length = ${data.length}`);
+		const getId = await fetch(
+			`${process.env.DOMAIN}/api/get/userid?user=${currUser}`
+		);
+
+		const currUserId = await getId.json();
+
+		console.log(`${currIndex}) - ${currUserId}, Current User = ${currUser}`);
+
+		const data = await fetchUserData(currUser, currUserId);
+
+		console.log(`main user's related length = ${data.length}`);
 
 		for (const single of data) {
 			if (!mainArray.includes(single.username)) {
@@ -166,31 +203,37 @@ async function POST() {
 			}
 		}
 
-		console.log("main array");
+		console.log("main users related  - ");
 
 		console.log(mainArray.length);
 
 		console.log(data);
 
-		await fetchAndProcess(data);
+		const loop = await fetchAndProcess(data);
+		console.log(loop);
 
-		console.log("All Urls Fetched ✅");
-		console.log(mainArray.length);
+		console.log(
+			`All Urls Fetched  from ${users[currIndex].id} - ${
+				users[currIndex].username
+			} from total ${users.length - 1} users✅`
+		);
 
-		// At this point, mainArray contains the unique data
+		const indexUpdateReq = await axios.put(
+			`${process.env.DOMAIN}/api/update/index?value=${currIndex + 1}`
+		);
+
+		const indexUpdate = await indexUpdateReq.data;
+
+		console.log(`Index Updated from ${currIndex} to ${indexUpdate} ✅`);
+		notifyTelegram(`Grampic script ended - Next ${indexUpdate}`);
+
+		exitScript();
 	} catch (error) {
 		console.error("Error:", error.message);
-		const notifier = await axios.post(
-			`${process.env.DOMAIN}/api/notification/telegram`,
 
-			{
-				body: {
-					message: `Grampic - similar users db script error - ${error.message}`,
-				},
-			}
-		);
-		console.log(notifier.data);
-	}
-}
+		notifyTelegram(`Grampic - similar users db script failed`);
+		exitScript();
+	} //catch block end
+} //for loop end
 
 POST();
