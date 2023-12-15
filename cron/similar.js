@@ -70,10 +70,8 @@ async function fetchAndProcess(entries, depth = 50) {
 
 			if (!mainArray.includes(item.username)) {
 				console.log(`${mainArray.length} - ${item.username}`);
-				const dbrequest = await addDB(item.username, item.userid);
+				await addDB(item.username, item.userid);
 				mainArray.push(item.username);
-			} else {
-				console.log(`1️⃣ mainArray Duplicate`);
 			}
 		}
 
@@ -153,7 +151,7 @@ async function POST() {
 		);
 		const all = getAllRes.data;
 		console.log(all.length);
-		for (let i = 10; i < all.length; i++) {
+		for (let i = 0; i < all.length; i++) {
 			const currUser = all[i].user;
 
 			const getId = await fetch(
