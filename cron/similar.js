@@ -1,26 +1,12 @@
 require("dotenv").config();
 const axios = require("axios");
-const { default: next } = require("next");
 
 const mainArray = [];
-const loggedArray = [];
+let superLoggedArray = [];
+let loggedArray = [];
 let tempArray = [];
 let nextArray = [];
-const limit = 10;
-
-const users = [
-	{ id: 0, username: "" },
-	{ id: 1, username: "avnizp" },
-	{ id: 2, username: "mimi" },
-	{ id: 3, username: "mimi" },
-	{ id: 4, username: "mimi" },
-	{ id: 5, username: "mimi" },
-	{ id: 6, username: "mimi" },
-	{ id: 7, username: "mimi" },
-	{ id: 8, username: "mimi" },
-	{ id: 9, username: "mimi" },
-	{ id: 10, username: "mimi" },
-];
+const limit = 35;
 
 async function notifyTelegram(message) {
 	const notifier = await axios.post(
@@ -45,7 +31,7 @@ async function fetchUserData(username, userid) {
 	return data;
 }
 
-async function fetchAndProcess(entries, depth = 1) {
+async function fetchAndProcess(entries, depth = 50) {
 	console.log(`DEPTH = ${depth}`);
 	if (depth === 0 || entries.length === 0) {
 		return;
@@ -87,7 +73,7 @@ async function fetchAndProcess(entries, depth = 1) {
 				const dbrequest = await addDB(item.username, item.userid);
 				mainArray.push(item.username);
 			} else {
-				console.log(`1️⃣  ${item.username} duplicate in main array`);
+				console.log(`1️⃣ mainArray Duplicate`);
 			}
 		}
 
@@ -111,6 +97,10 @@ async function fetchAndProcess(entries, depth = 1) {
 
 	console.log("Starting Next Loop ✅");
 
+	if (tempArray.length == 0) {
+		console.log("Next Array is empty");
+		return "Next Array is empty";
+	}
 	nextArray = [...tempArray];
 
 	console.log(`Next Array length is ${nextArray.length}`);
@@ -127,22 +117,6 @@ async function fetchAndProcess(entries, depth = 1) {
 async function addDB(username, userid) {
 	console.log(`username - ${username}`);
 	if (username) {
-		const checkReq = await fetch(
-			`${process.env.DOMAIN}/api/profile/get?user=${username}`
-		);
-		const check = await checkReq.json();
-
-		if (check) {
-			const deleteReq = await fetch(
-				`${process.env.DOMAIN}/api/profile/delete?user=${username}`,
-				{
-					method: "DELETE",
-				}
-			);
-			const deleted = await deleteReq.json();
-			console.log(`🗑️   ${username} deleted from db PROFILE`);
-		}
-
 		const topCheckReq = await fetch(
 			`${process.env.DOMAIN}/api/top/get?user=${username}`
 		);
@@ -160,7 +134,6 @@ async function addDB(username, userid) {
 
 			const add = await addReq.json();
 			console.log(`✅  ${username} added to db TOP`);
-			//here
 			tempArray.push({ username, userid });
 			loggedArray.push({ username, userid });
 			console.log(`Logged Users Count - ${loggedArray.length}`);
@@ -173,61 +146,70 @@ async function addDB(username, userid) {
 
 async function POST() {
 	try {
-		const currIndexFetch = await fetch(`${process.env.DOMAIN}/api/get/index`);
-		const currIndex = await currIndexFetch.json();
-		console.log(currIndex);
-		notifyTelegram(
-			`Grampic - START - Loop ${currIndex} from ${users.length - 1} `
+		notifyTelegram(`Grampic - Script START - `);
+
+		const getAllRes = await axios.get(
+			`${process.env.DOMAIN}/api/fetchlist/get-all`
 		);
+		const all = getAllRes.data;
+		console.log(all.length);
+		for (let i = 10; i < all.length; i++) {
+			const currUser = all[i].user;
 
-		const currUser = users[currIndex].username;
+			const getId = await fetch(
+				`${process.env.DOMAIN}/api/get/userid?user=${currUser}`
+			);
 
-		const getId = await fetch(
-			`${process.env.DOMAIN}/api/get/userid?user=${currUser}`
-		);
+			const currUserId = await getId.json();
 
-		const currUserId = await getId.json();
+			console.log(` ${currUserId}, Current User = ${currUser}`);
 
-		console.log(`${currIndex}) - ${currUserId}, Current User = ${currUser}`);
+			const data = await fetchUserData(currUser, currUserId);
 
-		const data = await fetchUserData(currUser, currUserId);
+			console.log(`main user's related length = ${data.length}`);
 
-		console.log(`main user's related length = ${data.length}`);
+			if (data.length == 0) {
+				console.log(`❌  no related for mainuser ${currUser} `);
+				continue;
+			}
 
-		for (const single of data) {
-			if (!mainArray.includes(single.username)) {
-				const dbrequest = await addDB(single.username, single.userid);
-				mainArray.push(single.username);
+			for (const single of data) {
+				if (!mainArray.includes(single.username)) {
+					await addDB(single.username, single.userid);
+					mainArray.push(single.username);
+					console.log(mainArray.length);
+				}
+			}
 
-				console.log(mainArray.length);
+			console.log(`main users related  - ${mainArray.length}`);
+			console.log(data);
+
+			const loop = await fetchAndProcess(data);
+			console.log(loop);
+
+			superLoggedArray.push(...loggedArray);
+			loggedArray = [];
+
+			const deleteCurrentUserRes = await fetch(
+				`${process.env.DOMAIN}/api/fetchlist/delete?user=${currUser}`,
+				{
+					method: "DELETE",
+				}
+			);
+
+			const deleteCurrentUser = await deleteCurrentUserRes.json();
+			console.log(`🗑️   ${currUser} deleted from db FETCHLIST`);
+			console.log(deleteCurrentUser);
+
+			if (superLoggedArray.length > 90) {
+				console.log("Super Logged Array Limit Reached");
+				console.log(superLoggedArray.length);
+
+				notifyTelegram(`Grampic - Stopped - superLimit Reached`);
+				exitScript();
+				return;
 			}
 		}
-
-		console.log("main users related  - ");
-
-		console.log(mainArray.length);
-
-		console.log(data);
-
-		const loop = await fetchAndProcess(data);
-		console.log(loop);
-
-		console.log(
-			`All Urls Fetched  from ${users[currIndex].id} - ${
-				users[currIndex].username
-			} from total ${users.length - 1} users✅`
-		);
-
-		const indexUpdateReq = await axios.put(
-			`${process.env.DOMAIN}/api/update/index?value=${currIndex + 1}`
-		);
-
-		const indexUpdate = await indexUpdateReq.data;
-
-		console.log(`Index Updated from ${currIndex} to ${indexUpdate} ✅`);
-		notifyTelegram(`Grampic script ended - Next ${indexUpdate}`);
-
-		exitScript();
 	} catch (error) {
 		console.error("Error:", error.message);
 

@@ -21,7 +21,15 @@ model top{
     user              String              @unique
 }
 
+model fetchlist {
+      id                Int                 @id @default(autoincrement())
+      user             String              @unique
+}
+
+
 model index {
       id                Int                 @id @default(autoincrement())
       value             Int
 }
+
+

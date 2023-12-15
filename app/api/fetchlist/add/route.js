@@ -1,17 +1,20 @@
 import prisma from "@/utils/db";
 import { NextResponse } from "next/server";
 
-export async function GET(req) {
+export async function POST(req) {
 	const user = req.nextUrl.searchParams.get("user");
 
 	try {
-		const result = await prisma.top.findUnique({
-			where: {
+		const result = await prisma.fetchlist.create({
+			data: {
 				user,
 			},
 		});
 
-		return NextResponse.json(result, { status: 200, message: "success" });
+		return NextResponse.json("User Added To DB     ✅", {
+			status: 200,
+			message: "success",
+		});
 	} catch (error) {
 		console.log(error.message);
 		return NextResponse.json(error.message, {
