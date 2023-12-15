@@ -1,6 +1,20 @@
 require("dotenv").config();
 const cheerio = require("cheerio");
-const { NextResponse } = require("next/server");
+
+async function notifyTelegram(message) {
+	const notifier = await axios.post(
+		`${process.env.DOMAIN}/api/notification/telegram`,
+		{
+			body: { message },
+		}
+	);
+	console.log(notifier.data);
+}
+
+function exitScript() {
+	console.log("Exiting script");
+	process.exit(0);
+}
 
 async function POST() {
 	// const excludedWords =
@@ -88,9 +102,7 @@ async function POST() {
 			}
 		}
 
-		return NextResponse.json("Operation Completed", {
-			status: 200,
-		});
+		exitScript();
 	} catch (error) {
 		console.log(error);
 		return NextResponse.json(error.message, {
