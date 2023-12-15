@@ -6,7 +6,7 @@ let superLoggedArray = [];
 let loggedArray = [];
 let tempArray = [];
 let nextArray = [];
-const limit = 35;
+const limit = 1000;
 
 async function notifyTelegram(message) {
 	const notifier = await axios.post(
@@ -201,7 +201,7 @@ async function POST() {
 			console.log(`🗑️   ${currUser} deleted from db FETCHLIST`);
 			console.log(deleteCurrentUser);
 
-			if (superLoggedArray.length > 90) {
+			if (superLoggedArray.length > 50000) {
 				console.log("Super Logged Array Limit Reached");
 				console.log(superLoggedArray.length);
 
