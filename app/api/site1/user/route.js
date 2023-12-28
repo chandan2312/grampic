@@ -84,7 +84,7 @@ export async function GET(req) {
 								.replace(/%3D/g, "=")
 								.replace(/%26/g, "&")
 								.replace(/%25/g, "%")
-								.replace("&dl=1", "%") || "",
+								.replace("&dl=1", "") || "",
 						likes: $(el).find("span.count_item_like span.num").text()?.trim() || 0,
 						comments:
 							$(el).find("span.count_item_comment span.num").text()?.trim() || 0,

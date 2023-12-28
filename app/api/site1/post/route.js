@@ -84,8 +84,8 @@ export async function GET(req) {
 							.replace(/.*\.com\/v\//, "/v/")
 							?.replace(/%3D/g, "=")
 							?.replace(/%26/g, "&")
-							?.replace(/%25/g, "%"),
-												.replace("&dl=1", "%"),
+							?.replace(/%25/g, "%")
+							.replace("&dl=1", ""),
 
 						isVideo:
 							$(el)
@@ -124,7 +124,7 @@ export async function GET(req) {
 					?.replace(/%3D/g, "=")
 					?.replace(/%26/g, "&")
 					?.replace(/%25/g, "%")
-					.replace("&dl=1", "%"),
+					.replace("&dl=1", ""),
 				isVideo:
 					$("div.view_w div.video_img").attr("class")?.includes("video") || false,
 			};
