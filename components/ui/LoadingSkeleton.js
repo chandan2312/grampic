@@ -7,7 +7,7 @@ const LoadingSkeleton = () => {
 	return (
 		<div className="w-full h-[90vh] flex justify-center items-center text-center mx-auto my-auto">
 			<ProgressBar
-				height="80"
+				height="95"
 				width="150"
 				ariaLabel="progress-bar-loading"
 				wrapperStyle={{}}

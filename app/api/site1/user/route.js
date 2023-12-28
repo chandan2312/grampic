@@ -76,6 +76,11 @@ export async function GET(req) {
 							.replace(/-/g, "--")
 							.replace(/\./g, "-")
 							.replace("com", "com.translate.goog"),
+						ogDomain: $(el)
+							.find("div.down a.downbtn")
+							.attr("href")
+							.replace(/.*webapp\&u\=/, "")
+							.replace(/\.com.*/, ".com"),
 						imgDownload:
 							$(el)
 								.find("div.down a.downbtn")

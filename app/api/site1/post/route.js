@@ -78,6 +78,10 @@ export async function GET(req) {
 							.replace(/-/g, "--")
 							.replace(/\./g, "-")
 							.replace("com", "com.translate.goog"),
+						ogDomain: $(`div.down_list div.down_item:eq(${index}) a.downbtn`)
+							.attr("href")
+							?.replace(/.*webapp\&u\=/, "")
+							?.replace(/\.com.*/g, ".com"),
 						download: $(`div.down_list div.down_item:eq(${index}) a.downbtn`)
 							.attr("href")
 							?.replace(/.*webapp\&u\=/, "")
@@ -111,12 +115,15 @@ export async function GET(req) {
 						?.replace(/.*\?v\//g, ""),
 				domain: $("div.down a.downbtn")
 					.attr("href")
-					?.replace(/.*webapp\&u\=/, "/v/")
+					?.replace(/.*webapp\&u\=/, "")
 					?.replace(/\.com.*/g, ".com")
 					.replace(/-/g, "--")
 					.replace(/\./g, "-")
 					.replace("com", "com.translate.goog"),
-
+				ogDomain: $("div.down a.downbtn")
+					.attr("href")
+					?.replace(/.*webapp\&u\=/, "")
+					?.replace(/\.com.*/g, ".com"),
 				download: $("div.down a.downbtn")
 					.attr("href")
 					?.replace(/.*webapp\&u\=/, "")

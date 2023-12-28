@@ -206,14 +206,20 @@ const page = async ({ params }) => {
 
 											{item.isVideo && (
 												<span className="absolute  top-[45%]  right-[45%]  flex justify-center items-center">
-													<Link href={item.download.replace("&dl=1", "")} target="_blank">
+													<Link
+														href={`${item.domain}${item.download.replace("&dl=1", "")}`}
+														target="_blank"
+													>
 														<FaRegCirclePlay className=" text-6xl  cursor-pointer bg-primary/80 text-white rounded-full" />
 													</Link>
 												</span>
 											)}
 
 											<button className="px-6 py-1 text-center text-white bg-success hover:bg-primary rounded-md ">
-												<Link href={`${item.domain}${item.download}&dl=1`}>
+												<Link
+													href={`${item.ogDomain}${item.download}&dl=1`}
+													target="_blank"
+												>
 													Download <FaDownload className="inline" />
 												</Link>
 											</button>

@@ -223,7 +223,7 @@ const page = async ({ params }) => {
 										</li>
 									</Link>
 									<Link
-										href={`${post.imgDomain}${post.imgDownload}&dl=1`}
+										href={`${post.ogDomain}${post.imgDownload}&dl=1`}
 										rel="noreferrer"
 									>
 										<li className=" bg-base-300/40 hover:bg-base-200 text-content-100/40 p-[6px] max-w-[max-content] rounded-full shadow-md cursor-pointer">
