@@ -19,7 +19,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 		},
 	});
 	const data = await res.json();
-	console.log(data);
 
 	return {
 		title: `${data.name} (${data.username}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
