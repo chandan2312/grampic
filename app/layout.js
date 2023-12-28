@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
 			<GoogleAnalytics ID="G-R0TNJDJH4V" />
 			<Script
 				async
-				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456"
+				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9282274410219812"
 				crossOrigin="anonymous"
 				strategy="lazyOnload"
 			/>
