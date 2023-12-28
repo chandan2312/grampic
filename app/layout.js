@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/main/Header";
 import Footer from "@/components/main/Footer";
 import GoogleAnalytics from "@/components/other/GoogleAnalytics";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +32,12 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" data-theme="mytheme" className="bg-base-200">
 			<GoogleAnalytics ID="G-R0TNJDJH4V" />
+			<Script
+				async
+				src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456"
+				crossOrigin="anonymous"
+				strategy="lazyOnload"
+			/>
 
 			<body className={`mx-auto max-w-[1360px] ${inter.className}`}>
 				<Header />

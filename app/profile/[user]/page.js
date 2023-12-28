@@ -19,6 +19,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 		},
 	});
 	const data = await res.json();
+	console.log(data);
 
 	return {
 		title: `${data.name} (${data.username}) Instagram Photos, Videos, Stories & Profile | ${process.env.NAME}`,
@@ -34,7 +35,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
 			images: data.posts
 				.filter((post, index) => index < 3)
 				.map((post) => ({
-					url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
+					url: `${post.imgDomain}${
+						post.imgDownload.includes(".mp4") ? post.img : post.imgDownload
+					}`,
 					width: 600,
 					height: 600,
 					alt: `${data.username} (${data.name}) Instagram - ${post.captionText}`,
@@ -47,7 +50,6 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 const page = async ({ params }) => {
 	const user = params.user;
-	console.log(user);
 
 	const res = await fetch(`${process.env.DOMAIN}/api/site1/user?user=${user}`, {
 		next: {
@@ -172,7 +174,7 @@ const page = async ({ params }) => {
 										<Link
 											href={
 												post.isVideo
-													? post.imgDownload.replace("&dl=1", "")
+													? `${post.imgDomain}${post.imgDownload.replace("&dl=1", "")}`
 													: `/p/${post.linkID}`
 											}
 											target={post.isVideo ? "_blank" : "_self"}
@@ -185,14 +187,16 @@ const page = async ({ params }) => {
 								<Link
 									href={
 										post.isVideo
-											? post.imgDownload.replace("&dl=1", "")
+											? `${post.imgDomain}${post.imgDownload.replace("&dl=1", "")}`
 											: `/p/${post.linkID}`
 									}
 									target={post.isVideo ? "_blank" : "_self"}
 								>
 									<figure className="rounded-t-md shadow-md cursor-pointer">
 										<Image
-											src={`https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`}
+											src={`${post.imgDomain}${
+												post.imgDownload.includes(".mp4") ? post.img : post.imgDownload
+											}`}
 											height={324}
 											width={324}
 											className={`w-full h-full transition-opacity opacity-100  duration-[2s] ease-in-out ${
@@ -219,7 +223,10 @@ const page = async ({ params }) => {
 											<HiArrowsExpand className="font-bold" />
 										</li>
 									</Link>
-									<Link href={`${post.imgDownload}`} rel="noreferrer">
+									<Link
+										href={`${post.imgDomain}${post.imgDownload}&dl=1`}
+										rel="noreferrer"
+									>
 										<li className=" bg-base-300/40 hover:bg-base-200 text-content-100/40 p-[6px] max-w-[max-content] rounded-full shadow-md cursor-pointer">
 											<ImDownload3 className="font-bold " />
 										</li>

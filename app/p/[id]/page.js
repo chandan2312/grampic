@@ -16,6 +16,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 		},
 	});
 	const data = await res.json();
+	console.log(data);
 
 	return {
 		title: `${data.name} (${data.username}) Photo & Update - ${data.captionText
@@ -39,7 +40,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
 			url: `${process.env.NAME}/p/${id}`,
 
 			images: data.media.map((post) => ({
-				url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
+				url: `${post.domain}${
+					post.download.includes(".mp4") ? post.img : post.download
+				}`,
 				width: 600,
 				height: 600,
 				alt: `${data.name} (${data.username}) Instagram - ${post.captionText}`,
@@ -183,7 +186,9 @@ const page = async ({ params }) => {
 											className="card relative max-lg:!mx-0 max-lg:!px-0 max-lg:!pt-0 col-span-12 lg:col-span-6 gap-4 "
 										>
 											<Image
-												src={`https://instagram-fnag1--4-fna-fbcdn-net.translate.goog/v/${item.img}`}
+												src={`${item.domain}${
+													item.download.includes(".mp4") ? item.img : item.download
+												}`}
 												width={600}
 												height={600}
 												layout="responsive"
@@ -208,7 +213,7 @@ const page = async ({ params }) => {
 											)}
 
 											<button className="px-6 py-1 text-center text-white bg-success hover:bg-primary rounded-md ">
-												<Link href={item.download}>
+												<Link href={`${item.domain}${item.download}&dl=1`}>
 													Download <FaDownload className="inline" />
 												</Link>
 											</button>

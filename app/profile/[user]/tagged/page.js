@@ -37,7 +37,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 			images: data.posts
 				.filter((post, index) => index < 3)
 				.map((post) => ({
-					url: `https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`,
+					url: `${post.imgDomain}${post.imgDownload}`,
 					width: 600,
 					height: 600,
 					alt: `${data.username} (${data.name}) Tagged Post - ${post.captionText}`,
@@ -116,7 +116,7 @@ const page = async ({ params }) => {
 								<Link href={`/profile/p/${post.linkID}`}>
 									<figure className="rounded-t-md shadow-md cursor-pointer">
 										<Image
-											src={`https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`}
+											src={`${post.imgDomain}${post.imgDownload}`}
 											height={600}
 											width={600}
 											layout="responsive"
@@ -137,7 +137,10 @@ const page = async ({ params }) => {
 											<HiArrowsExpand className="font-bold" />
 										</li>
 									</Link>
-									<Link href={`${post.imgDownload}`} rel="noreferrer">
+									<Link
+										href={`${post.imgDomain}${post.imgDownload}&dl=1`}
+										rel="noreferrer"
+									>
 										<li className=" bg-secondary/40 hover:bg-primary text-primary p-[6px] max-w-[max-content] rounded-full shadow-md cursor-pointer">
 											<ImDownload3 className="font-bold " />
 										</li>

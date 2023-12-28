@@ -65,18 +65,28 @@ export async function GET(req) {
 							$(el)
 								.find("div.pic a img")
 								.attr("data-src")
-								?.replace(/.*\?v\//g, "") ||
+								?.replace(/.*\?v\//g, "/v/") ||
 							$(el)
 								.find("div.view_w div.video_img")
 								.find("img")
 								.attr("data-src")
 								?.replace(/.*\?v\//g, ""),
+						domain: $(`div.down_list div.down_item:eq(${index}) a.downbtn`)
+							.attr("href")
+							?.replace(/.*webapp\&u\=/, "")
+							?.replace(/\.com.*/g, ".com")
+							.replace(/-/g, "--")
+							.replace(/\./g, "-")
+							.replace("com", "com.translate.goog"),
 						download: $(`div.down_list div.down_item:eq(${index}) a.downbtn`)
 							.attr("href")
 							?.replace(/.*webapp\&u\=/, "")
+							.replace(/.*\.com\/v\//, "/v/")
 							?.replace(/%3D/g, "=")
 							?.replace(/%26/g, "&")
 							?.replace(/%25/g, "%"),
+												.replace("&dl=1", "%"),
+
 						isVideo:
 							$(el)
 								.find("div.view_w div.video_img")
@@ -94,24 +104,32 @@ export async function GET(req) {
 				img:
 					$("div.view_w div.pic a img")
 						.attr("data-src")
-						?.replace(/.*\?v\//g, "") ||
+						?.replace(/.*\?v\//g, "/v/") ||
 					$("div.view_w div.video_img")
 						.find("img")
 						.attr("data-src")
 						?.replace(/.*\?v\//g, ""),
+				domain: $("div.down a.downbtn")
+					.attr("href")
+					?.replace(/.*webapp\&u\=/, "/v/")
+					?.replace(/\.com.*/g, ".com")
+					.replace(/-/g, "--")
+					.replace(/\./g, "-")
+					.replace("com", "com.translate.goog"),
+
 				download: $("div.down a.downbtn")
 					.attr("href")
 					?.replace(/.*webapp\&u\=/, "")
+					.replace(/.*\.com\/v\//, "/v/")
 					?.replace(/%3D/g, "=")
 					?.replace(/%26/g, "&")
-					?.replace(/%25/g, "%"),
+					?.replace(/%25/g, "%")
+					.replace("&dl=1", "%"),
 				isVideo:
 					$("div.view_w div.video_img").attr("class")?.includes("video") || false,
 			};
 			data.media.push(single);
 		}
-
-		console.log(data);
 
 		return NextResponse.json(data, {
 			status: 200,

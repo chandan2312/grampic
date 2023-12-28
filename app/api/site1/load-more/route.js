@@ -6,8 +6,6 @@ export async function GET(req) {
 		const maxId = req.nextUrl.searchParams.get("maxId");
 		const userId = req.nextUrl.searchParams.get("userId");
 
-		console.log(maxId, userId);
-
 		const fetcher = await fetch(
 			`https://www-picnob-com.translate.goog/api/posts?userid=${userId}&next&maxid=${maxId}&hl&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
 		);
@@ -29,8 +27,13 @@ export async function GET(req) {
 				const single = {
 					ID: index + 1,
 					linkID: el.shortcode,
-					img: `${el.pic_p?.replace(/.*\?v\//g, "")}`,
-					imgDownload: el.down_pic,
+					img: `${el.pic_p?.replace(/.*\?v\//g, "/v/")}`,
+					imgDomain: el.down_pic
+						.replace(/\.com.*/, ".com")
+						.replace(/-/g, "--")
+						.replace(/\./g, "-")
+						.replace("com", "com.translate.goog"),
+					imgDownload: el.down_pic.replace(/.*\.com\/v\//, "/v/"),
 					likes: el.count_like_pure,
 					comments: el.count_comment_pure,
 					time: el.ftime,

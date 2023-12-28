@@ -41,6 +41,8 @@ const LoadMore = ({ maxId, userId, data }) => {
 		}
 	};
 
+	console.log(items);
+
 	const handleLoadMoreClick = () => {
 		setShowLoadMoreButton(false);
 		fetchData();
@@ -72,15 +74,29 @@ const LoadMore = ({ maxId, userId, data }) => {
 
 						{post.isVideo && (
 							<div className="absolute top-[45%]  right-[45%]  flex justify-center items-center">
-								<Link href={`/p/${post.linkID}`}>
+								<Link
+									href={
+										post.isVideo
+											? `${post.imgDomain}${post.imgDownload.replace("&dl=1", "")}`
+											: `/p/${post.linkID}`
+									}
+								>
 									<FaRegCirclePlay className=" text-6xl  cursor-pointer bg-primary/80 text-white rounded-full" />
 								</Link>
 							</div>
 						)}
-						<Link href={`/p/${post.linkID}`}>
+						<Link
+							href={
+								post.isVideo
+									? `${post.imgDomain}${post.imgDownload.replace("&dl=1", "")}`
+									: `/p/${post.linkID}`
+							}
+						>
 							<figure className="rounded-t-md shadow-md cursor-pointer">
 								<Image
-									src={`https://scontent--atl3--1-cdninstagram-com.translate.goog/v/${post.img}`}
+									src={`${post.imgDomain}${
+										post.imgDownload.includes(".mp4") ? post.img : post.imgDownload
+									}`}
 									height={324}
 									width={324}
 									className="w-full transition-opacity   duration-[2s] ease-in-out hover:opacity-80"

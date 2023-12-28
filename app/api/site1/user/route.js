@@ -67,15 +67,24 @@ export async function GET(req) {
 							$(el)
 								.find("div.preview_w img")
 								.attr("data-src")
-								?.replace(/.*\?v\//g, "") || "",
+								?.replace(/.*\?v\//g, "/v/") || "",
+						imgDomain: $(el)
+							.find("div.down a.downbtn")
+							.attr("href")
+							.replace(/.*webapp\&u\=/, "")
+							.replace(/\.com.*/, ".com")
+							.replace(/-/g, "--")
+							.replace(/\./g, "-")
+							.replace("com", "com.translate.goog"),
 						imgDownload:
 							$(el)
 								.find("div.down a.downbtn")
 								.attr("href")
-								.replace(/.*webapp\&u\=/, "")
+								.replace(/.*\.com\/v\//, "/v/")
 								.replace(/%3D/g, "=")
 								.replace(/%26/g, "&")
-								.replace(/%25/g, "%") || "",
+								.replace(/%25/g, "%")
+								.replace("&dl=1", "%") || "",
 						likes: $(el).find("span.count_item_like span.num").text()?.trim() || 0,
 						comments:
 							$(el).find("span.count_item_comment span.num").text()?.trim() || 0,
