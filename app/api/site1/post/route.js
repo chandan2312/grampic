@@ -6,7 +6,7 @@ export async function GET(req) {
 
 	try {
 		const res = await fetch(
-			`https://www-picnob-com.translate.goog/post/${id}/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
+			`https://www-pixwox-com.translate.goog/post/${id}/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
 		);
 		const body = await res.text();
 		const $ = cheerio.load(body);
@@ -21,7 +21,7 @@ export async function GET(req) {
 			caption:
 				$("div.meta div.sum_full")
 					?.html()
-					?.replace(/https:\/\/www-picnob-com\.translate\.goog/g, "")
+					?.replace(/https:\/\/www-pixwox-com\.translate\.goog/g, "")
 					?.replace(
 						/\/\?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp/g,
 						""

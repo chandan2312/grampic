@@ -8,7 +8,7 @@ export async function GET(req) {
 	// const userId = req.nextUrl.searchParams.get("userId");
 	try {
 		// const fetcher = await fetch(
-		// 	`https://www-picnob-com.translate.goog/api/similar?userid=${userId}7&username=${user}&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
+		// 	`https://www-pixwox-com.translate.goog/api/similar?userid=${userId}7&username=${user}&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
 		// );
 
 		// const body = await fetcher.text();

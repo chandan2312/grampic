@@ -6,7 +6,7 @@ export async function GET(req) {
 	const user = await req.nextUrl.searchParams.get("user");
 	try {
 		const res = await fetch(
-			`https://www-picnob-com.translate.goog/profile/${user}/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`,
+			`https://www-pixwox-com.translate.goog/profile/${user}/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`,
 			{
 				next: {
 					revalidate: 60 * 60 * 24 * 365, // 2 days

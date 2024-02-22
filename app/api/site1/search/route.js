@@ -7,7 +7,7 @@ export async function GET(req) {
 		console.log(term);
 
 		const res = await fetch(
-			`https://www-picnob-com.translate.goog/search/?q=${term}&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`,
+			`https://www-pixwox-com.translate.goog/search/?q=${term}&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`,
 			{
 				next: {
 					revalidate: 60 * 60 * 24 * 2, // 2 days

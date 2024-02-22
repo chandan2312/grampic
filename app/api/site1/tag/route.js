@@ -7,7 +7,7 @@ export async function GET(req) {
 		console.log(tag);
 
 		const res = await fetch(
-			`https://www-picnob-com.translate.goog/tag/${tag}/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`,
+			`https://www-pixwox-com.translate.goog/tag/${tag}/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`,
 			{
 				next: {
 					revalidate: 60 * 60 * 24 * 2, // 2 days
@@ -50,7 +50,7 @@ export async function GET(req) {
 							$(el)
 								.find("div.meta div.sum")
 								?.html()
-								?.replace(/https:\/\/www-picnob-com\.translate\.goog/g, "")
+								?.replace(/https:\/\/www-pixwox-com\.translate\.goog/g, "")
 								?.replace(
 									/\/\?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp/g,
 									""
@@ -98,7 +98,7 @@ export async function GET(req) {
 							$(el)
 								.find("div.meta div.sum")
 								?.html()
-								?.replace(/https:\/\/www-picnob-com\.translate\.goog/g, "")
+								?.replace(/https:\/\/www-pixwox-com\.translate\.goog/g, "")
 								?.replace(
 									/\/\?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp/g,
 									""

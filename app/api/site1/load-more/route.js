@@ -7,7 +7,7 @@ export async function GET(req) {
 		const userId = req.nextUrl.searchParams.get("userId");
 
 		const fetcher = await fetch(
-			`https://www-picnob-com.translate.goog/api/posts?userid=${userId}&next&maxid=${maxId}&hl&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
+			`https://www-pixwox-com.translate.goog/api/posts?userid=${userId}&next&maxid=${maxId}&hl&_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp`
 		);
 
 		const body = await fetcher.text();

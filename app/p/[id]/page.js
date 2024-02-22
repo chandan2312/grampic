@@ -253,8 +253,8 @@ const page = async ({ params }) => {
 											<figure className="relative w-10 h-10 rounded-full overflow-hidden">
 												<Image
 													src={`https://instagram-fnag6--3-fna-fbcdn-net.translate.goog/v/${comment?.avatar?.replace(
-														"sp1.picnob.com",
-														"sp1-picnob-com.translate.goog"
+														"sp1.pixwox.com",
+														"sp1-pixwox-com.translate.goog"
 													)}`}
 													width={100}
 													height={100}
